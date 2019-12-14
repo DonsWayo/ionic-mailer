@@ -1,0 +1,7 @@
+{
+  "name": "ion-mailer",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
