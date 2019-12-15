@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { Router, NavigationExtras } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { ComposeMailPage } from '../compose-mail/compose-mail.page';
 
 @Component({
   selector: 'app-mail-list',
@@ -12,34 +14,35 @@ export class MailListPage implements OnInit {
   emails: any[];
   loading = true;
 
+  //avoid angular issue
+
   constructor(
     private readonly apiService: ApiService,
-    private router: Router
-    ) { }
+    private router: Router,
+    private modalCtrl: ModalController
+  ) { }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.getInboxMails();
   }
 
+  ngOnInit() {
+  }
+
   initConnections() {
-    this.apiService.getInbox()
-    .toPromise()
-    .then((data) => {
-        console.log(data)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+   
   }
 
   getInboxMails() {
-    this.apiService.getInbox()
-    .subscribe((data) => {
-      console.log(data)
+    this.apiService.get('imap-client').toPromise()
+    .then((data) => {
+      this.loading = false;
       this.emails = data;
-      setTimeout(() => {
-        this.loading = false;
-      }, 5000);
+      console.log(data)
+    })
+    .catch((err) => {
+      this.loading = false;
+      console.log(err)
     })
   }
 
@@ -61,5 +64,17 @@ export class MailListPage implements OnInit {
     };
     this.router.navigate(['/mail-detail'], navigationExtras)
   }
+
+  async presentModal() {
+    const modal = await this.modalCtrl.create({
+      component: ComposeMailPage
+    });
+    return await modal.present();
+  }
+
+  public isIgnoreStatus(item: any): boolean {
+    const val = !item.flags.includes('\\Seen')
+    return val;
+}
 
 }

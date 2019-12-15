@@ -1,9 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>compose-mail</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
 
+<ion-content fullscreen>
+  <div style="padding: 3%;">
+    <ion-icon name="attach" size="large"></ion-icon>
+    <ion-icon name="close" (click)="dismiss()" size="large" style="float:
+      right;"></ion-icon>
+  </div>
+  <form [formGroup]="mailForm">
+    <ion-item>
+      <ion-label position="floating">To</ion-label>
+      <ion-input formControlName="to" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Subject</ion-label>
+      <ion-input formControlName="subject" ></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label position="floating">Compose</ion-label>
+      <ion-textarea formControlName="text" ></ion-textarea>
+    </ion-item>
+  </form>
+  <!-- fab placed to the bottom end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="onClickSubmit()">
+      <ion-icon name="send"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

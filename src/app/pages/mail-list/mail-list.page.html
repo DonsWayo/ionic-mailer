@@ -26,17 +26,18 @@
       Inbox
     </ion-list-header>
 
-      <ion-item *ngFor="let item of emails" (click)="goToMailDetail(item)">
-        <ion-avatar slot="start">
-          <img
-            src="https://eu.ui-avatars.com/api/?size=128&rounded=true&length=1&name={{item.envelope.from[0].address}}">
-        </ion-avatar>
-        <ion-label>
-          <h2>{{item.envelope.from[0].address}}</h2>
-          <h3>{{item.envelope.subject}}</h3>
-          <p>{{item.envelope.date}}</p>
-        </ion-label>
-      </ion-item>
+    <ion-item *ngFor="let item of emails" (click)="goToMailDetail(item)">
+      <div class="dot" *ngIf="isIgnoreStatus(item)"></div>
+      <ion-avatar slot="start">
+        <img
+          src="https://eu.ui-avatars.com/api/?size=128&rounded=true&length=1&name={{item.envelope.from[0].address}}">
+      </ion-avatar>
+      <ion-label style="margin-left: 3%;">
+        <h2>{{item.envelope.from[0].address}}</h2>
+        <h3>{{item.envelope.subject}}</h3>
+        <p>{{item.envelope.date}}</p>
+      </ion-label>
+    </ion-item>
 
   </ion-list>
 
@@ -174,4 +175,11 @@
     </ion-item>
 
   </ion-list>
+
+  <!-- fab placed to the bottom end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="presentModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

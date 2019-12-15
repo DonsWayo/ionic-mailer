@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ComposeMailPageRoutingModule } from './compose-mail-routing.module';
+import { LoginPageRoutingModule } from './login-routing.module';
 
-import { ComposeMailPage } from './compose-mail.page';
+import { LoginPage } from './login.page';
 
 @NgModule({
   imports: [
@@ -14,9 +14,8 @@ import { ComposeMailPage } from './compose-mail.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    ComposeMailPageRoutingModule
+    LoginPageRoutingModule
   ],
-  declarations: [ComposeMailPage],
-  exports: [ComposeMailPage]
+  declarations: [LoginPage]
 })
-export class ComposeMailPageModule {}
+export class LoginPageModule {}

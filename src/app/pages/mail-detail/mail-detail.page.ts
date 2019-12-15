@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import parse from 'emailjs-mime-parser'
 import { TextDecoder } from 'text-encoding'
+import { HttpClient } from '@angular/common/http';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-mail-detail',
@@ -15,11 +17,16 @@ export class MailDetailPage implements OnInit {
   mailBodyContent: any;
   loading: boolean;
 
-  constructor(private route: ActivatedRoute, private router: Router) { 
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router,
+    private apiService: ApiService
+    ) { 
     this.route.queryParams.subscribe(params => {
       if (params && params.mail) {
         this.mailParams = JSON.parse(params.mail);
         this.parseMail()
+        this.markAsRead()
       }
     });
   }
@@ -34,6 +41,17 @@ export class MailDetailPage implements OnInit {
     console.log(this.mailBodyContent)
     console.log(this.mailBody)
 
+  }
+
+  markAsRead() {
+    this.apiService.post('imap-client/' + this.mailParams.uid,{})
+    .toPromise()
+    .then((data) => {
+      console.log(data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
 }

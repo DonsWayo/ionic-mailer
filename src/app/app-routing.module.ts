@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'compose-mail',
     loadChildren: () => import('./pages/compose-mail/compose-mail.module').then( m => m.ComposeMailPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   }
 ];
 

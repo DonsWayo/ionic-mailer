@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { MailDetailPageRoutingModule } from './mail-detail-routing.module';
 
 import { MailDetailPage } from './mail-detail.page';
+import { EscapeHtmlPipe } from 'src/app/pipes/keep-html.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { MailDetailPage } from './mail-detail.page';
     IonicModule,
     MailDetailPageRoutingModule
   ],
-  declarations: [MailDetailPage]
+  declarations: [MailDetailPage, EscapeHtmlPipe]
 })
 export class MailDetailPageModule {}
