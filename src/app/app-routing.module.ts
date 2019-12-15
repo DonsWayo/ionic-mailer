@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'mail-list',
     pathMatch: 'full'
   },
   {
@@ -14,6 +14,18 @@ const routes: Routes = [
   {
     path: 'list',
     loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+  },
+  {
+    path: 'mail-list',
+    loadChildren: () => import('./pages/mail-list/mail-list.module').then( m => m.MailListPageModule)
+  },
+  {
+    path: 'mail-detail',
+    loadChildren: () => import('./pages/mail-detail/mail-detail.module').then( m => m.MailDetailPageModule)
+  },
+  {
+    path: 'compose-mail',
+    loadChildren: () => import('./pages/compose-mail/compose-mail.module').then( m => m.ComposeMailPageModule)
   }
 ];
 

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ion Mailer</string>
+    <string name="title_activity_main">Ion Mailer</string>
+    <string name="package_name">com.juan.jose.carracedo.ionmailer</string>
+    <string name="custom_url_scheme">com.juan.jose.carracedo.ionmailer</string>
+</resources>

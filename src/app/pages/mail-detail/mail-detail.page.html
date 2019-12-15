@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>mail-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [innerHtml]="mailBodyContent" ></div>
+<div *ngIf="loading">
+  <ion-item>
+    <hr>
+    <ion-avatar slot="start">
+      <ion-skeleton-text></ion-skeleton-text>
+    </ion-avatar>
+    <ion-label>
+      <hr>
+      <h3>
+        <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+      </h3>
+      <hr>
+      <p>
+        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      </p>
+      <hr>
+      <p>
+        <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+  <hr>
+  <ion-item>
+    <ion-label>
+      <p>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </p>
+      <hr>
+      <p>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </p>
+      <hr>
+      <p>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </p>
+      <hr>
+      <p>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </p>
+      <hr>
+      <p>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </p>
+      <hr>
+      <p>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </p>
+      <hr>
+      <p>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </p>
+      <hr>
+      <p>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </p>
+      <hr>
+      <p>
+        <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+</div>
+</ion-content>
